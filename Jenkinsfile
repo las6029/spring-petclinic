@@ -54,7 +54,7 @@ pipeline {
         // Docker Iamge Push
 
         stage('Docker Image Push') {
-            step {
+            steps {
                 sh '''
                    ehco DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                    docker push las6029/spring-petclinic:latest
