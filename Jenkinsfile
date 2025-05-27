@@ -92,6 +92,7 @@ pipeline {
         stage('Codedeploy Workload') {
             steps {
                echo "create Codedeploy group"   
+               withAWS(region: "${REGION}", credentials: "${AWS_CREDENTIALS_NAME}") {
                 sh '''
                     aws deploy create-deployment-group \
                     --application-name project1-application \
@@ -107,6 +108,7 @@ pipeline {
                     --deployment-group-name project1-production-in_place-${BUILD_NUMBER} \
                     --s3-location bucket=project1-bucket-jss,bundleType=zip,key=deploy.zip
                     '''
+            }
                     sleep(10) // sleep 10s
             }
     }
