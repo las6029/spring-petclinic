@@ -79,7 +79,7 @@ pipeline {
                 echo "Upload to S3"
                 dir("${env.WORKSPACE}") {
                     sh '''
-                        which zip || sudo apt update && sudo apt install -y zip
+                        which zip || apt update && apt install -y zip
                         zip -r scripts.zip ./scripts appspec.yml
                     '''
                     withAWS(region:"${REGION}",credentials:"${AWS_CREDENTIALS_NAME}"){
