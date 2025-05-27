@@ -107,7 +107,7 @@ pipeline {
                     aws deploy create-deployment --application-name project1-application \
                     --deployment-config-name CodeDeployDefault.OneAtATime \
                     --deployment-group-name project1-production-in_place-${BUILD_NUMBER} \
-                    --s3-location bucket=project1-bucket-jss,bundleType=zip,key=deploy.zip
+                    --s3-location bucket=project1-bucket-jss,bundleType=zip,key=scripts.zip
                     '''
             }
                     sleep(10) // sleep 10s
